@@ -5,6 +5,7 @@
  * Turkish translation by pikachuturkey
  *
  * @copyright (c) 2015 PayBas
+ * @copyright (c) 2026 Avathar
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * Based on the original Prime Quick Style by Ken F. Innes IV (primehalo)
@@ -37,12 +38,13 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-	'QUICK_STYLE'						=> 'Hızlı Stil',
-	'QUICK_STYLE_EXPLAIN'				=> 'Her sayfanın üst kısmına stiller arası hızlıca geçiş yapmayı sağlayan açılır kapanır bir kutucuk ekler. Primehalonun orijinal Prime Quick Style modunu temel almıştır.',
-	'QUICK_STYLE_SETTINGS'				=> 'Hızlı Stil ayarları',
-	'QUICK_STYLE_DEFAULT_LOC'			=> 'Varsayılan şablon konumunu kullan',
-	'QUICK_STYLE_DEFAULT_LOC_EXPLAIN'	=> 'Varsayılan olarak, Hızlı Stil eklentisi sayfa üst kısımda (header) sağ tarafta seçim kutusu ekler. “Hayır“ı seçerseniz size quickstyle_event kısmını stilinizde herhangi bir yere eklemenize izin verir.',
-	'QUICK_STYLE_ALLOW_GUESTS'			=> 'Misafirlerin stili değiştirmesine izin ver',
-	'QUICK_STYLE_ALLOW_GUESTS_EXPLAIN'	=> 'Bu ayar misafir kullanıcıların da stili değiştirmesine izin verir. Onlar oturum açtıktan sonra, bir önbellk çerezi onların seçtiği stili hatırlayacak.',
-	'QUICK_STYLE_OVERRIDE_ENABLED'		=> '“Kullanıcı stilinin üstüne yaz“ ayarı bu sitede aktif durumda. siz bu ayarı kapatana kadar Stil değiştirici çalışmayacak.',
+	'AV_QUICK_STYLE'						=> 'Hızlı Stil',
+	'AV_QUICK_STYLE_EXPLAIN'				=> 'Her sayfanın üst kısmına stiller arası hızlıca geçiş yapmayı sağlayan açılır kapanır bir kutucuk ekler. Primehalonun orijinal Prime Quick Style modunu temel almıştır.',
+	'AV_QUICK_STYLE_SETTINGS'				=> 'Hızlı Stil ayarları',
+	'AV_QUICK_STYLE_DEFAULT_LOC'			=> 'Varsayılan şablon konumunu kullan',
+	'AV_QUICK_STYLE_DEFAULT_LOC_EXPLAIN'	=> 'Varsayılan olarak, Hızlı Stil eklentisi sayfa üst kısımda (header) sağ tarafta seçim kutusu ekler. “Hayır“ı seçerseniz size quickstyle_event kısmını stilinizde herhangi bir yere eklemenize izin verir.',
+	'AV_QUICK_STYLE_PERMISSION_EXPLAIN'	=> 'Stil degistiriciye erisim <strong>Quick Style kullanabilir</strong> kullanici izni ile kontrol edilir. Bunu Yonetim &raquo; Izinler &raquo; Kullanici veya Grup izinleri altindan yapilandiriniz.',
+	'AV_QUICK_STYLE_OVERRIDE_ENABLED'		=> '”Kullanıcı stilinin üstüne yaz” ayarı bu sitede aktif durumda. siz bu ayarı kapatana kadar Stil değiştirici çalışmayacak.',
+
+	'ACL_U_QUICKSTYLE'					=> 'Quick Style kullanabilir',
 ));

@@ -1,11 +1,10 @@
-.style_form
-{
-    /*padding: 5px;*/
+/* Quick Style - style switcher dropdown */
+.quick-style .dropdown-contents li.active a {
+	font-weight: bold;
 }
 
-.style-wrapper
-{
-    display:inline-block;
-	vertical-align:middle; 
-	margin-top: auto;
+@media (max-width: 700px) {
+	.quick-style {
+		display: none !important;
+	}
 }

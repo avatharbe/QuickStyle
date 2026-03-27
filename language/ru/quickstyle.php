@@ -5,6 +5,7 @@
  * Russian translation by rxu
  *
  * @copyright (c) 2015 PayBas
+ * @copyright (c) 2026 Avathar
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * Based on the original Prime Quick Style by Ken F. Innes IV (primehalo)
