@@ -1,24 +1,24 @@
 {% INCLUDE 'overall_header.html' %}
 
-<h1>{{ lang('QUICK_STYLE') }}</h1>
+<h1>{{ lang('AV_QUICK_STYLE') }}</h1>
 
-<p>{{ lang('QUICK_STYLE_EXPLAIN') }}</p>
+<p>{{ lang('AV_QUICK_STYLE_EXPLAIN') }}</p>
 
 <form id="quick_style_form" method="post" action="{{ U_ACTION }}">
 
 	<fieldset>
-		<legend>{{ lang('QUICK_STYLE_SETTINGS') }}</legend>
+		<legend>{{ lang('AV_QUICK_STYLE_SETTINGS') }}</legend>
 
-		{% if S_OVERRIDE_USER_STYLE %}<p class="error"><strong>{{ lang('QUICK_STYLE_OVERRIDE_ENABLED') }}</strong></p>{% endif %}
+		{% if S_OVERRIDE_USER_STYLE %}<p class="error"><strong>{{ lang('AV_QUICK_STYLE_OVERRIDE_ENABLED') }}</strong></p>{% endif %}
 	<dl>
-		<dt><label for="quickstyle_default_loc">{{ lang('QUICK_STYLE_DEFAULT_LOC') }}{{ lang('COLON') }}</label><br /><span>{{ lang('QUICK_STYLE_DEFAULT_LOC_EXPLAIN') }}</span></dt>
+		<dt><label for="quickstyle_default_loc">{{ lang('AV_QUICK_STYLE_DEFAULT_LOC') }}{{ lang('COLON') }}</label><br /><span>{{ lang('AV_QUICK_STYLE_DEFAULT_LOC_EXPLAIN') }}</span></dt>
 		<dd>
 			<label><input type="radio" class="radio" name="quickstyle_default_loc" value="1" id="quickstyle_default_loc"{% if S_QUICKSTYLE_DEFAULT_LOC %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 			<label><input type="radio" class="radio" name="quickstyle_default_loc" value="0"{% if not S_QUICKSTYLE_DEFAULT_LOC %} checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 		</dd>
 	</dl>
 	<dl>
-		<dt><span>{{ lang('QUICK_STYLE_PERMISSION_EXPLAIN') }}</span></dt>
+		<dt><span>{{ lang('AV_QUICK_STYLE_PERMISSION_EXPLAIN') }}</span></dt>
 	</dl>
 	</fieldset>
 

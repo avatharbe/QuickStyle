@@ -5,6 +5,7 @@
  * Estonian translation by phpBBeesti (phpBBeesti.com)
  *
  * @copyright (c) 2015 PayBas
+ * @copyright (c) 2026 Avathar
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * Based on the original Prime Quick Style by Ken F. Innes IV (primehalo)
@@ -37,13 +38,13 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-	'QUICK_STYLE'						=> 'Stiili kiirvalik',
-	'QUICK_STYLE_EXPLAIN'				=> 'Lisab iga lehekülje päisesse rippmenüüst koosneva stiilide valiku, et kiiresti saaks vahetada olemas oleva stiili mõne muu vastu. Rippmenüüd näidatakse ainult juhul, kui foorumil on rohkem kui 1 stiil.',
-	'QUICK_STYLE_SETTINGS'				=> 'Stiili kiirvaliku seaded',
-	'QUICK_STYLE_DEFAULT_LOC'			=> 'Kasuta vaikimisi asukohta',
-	'QUICK_STYLE_DEFAULT_LOC_EXPLAIN'	=> 'Vaikimisi lisatakse stiilide kiirvalik paremale poole vastu breadcrumb navigatsooni. Seadistades selle väärtuseks “Ei“ lubab sul lisada quickstyle_event ükskõik kuhu oma stiilile.',
-	'QUICK_STYLE_PERMISSION_EXPLAIN'	=> 'Stiilide kiirvaliku kasutamine on juhitav <strong>Saab kasutada Quick Style</strong> kasutajaõigusega. Seadista see Administreerimine &raquo; Õigused &raquo; Kasutaja- või grupiõigused.',
-	'QUICK_STYLE_OVERRIDE_ENABLED'		=> '”Muuda kasutajate valitud stiil” on lubatud foorumi seadetes. Stiilide kiirvalikut ei näidata enne, kui oled selle valiku keelanud.',
+	'AV_QUICK_STYLE'						=> 'Stiili kiirvalik',
+	'AV_QUICK_STYLE_EXPLAIN'				=> 'Lisab iga lehekülje päisesse rippmenüüst koosneva stiilide valiku, et kiiresti saaks vahetada olemas oleva stiili mõne muu vastu. Rippmenüüd näidatakse ainult juhul, kui foorumil on rohkem kui 1 stiil.',
+	'AV_QUICK_STYLE_SETTINGS'				=> 'Stiili kiirvaliku seaded',
+	'AV_QUICK_STYLE_DEFAULT_LOC'			=> 'Kasuta vaikimisi asukohta',
+	'AV_QUICK_STYLE_DEFAULT_LOC_EXPLAIN'	=> 'Vaikimisi lisatakse stiilide kiirvalik paremale poole vastu breadcrumb navigatsooni. Seadistades selle väärtuseks “Ei“ lubab sul lisada quickstyle_event ükskõik kuhu oma stiilile.',
+	'AV_QUICK_STYLE_PERMISSION_EXPLAIN'	=> 'Stiilide kiirvaliku kasutamine on juhitav <strong>Saab kasutada Quick Style</strong> kasutajaõigusega. Seadista see Administreerimine &raquo; Õigused &raquo; Kasutaja- või grupiõigused.',
+	'AV_QUICK_STYLE_OVERRIDE_ENABLED'		=> '”Muuda kasutajate valitud stiil” on lubatud foorumi seadetes. Stiilide kiirvalikut ei näidata enne, kui oled selle valiku keelanud.',
 
 	'ACL_U_QUICKSTYLE'					=> 'Saab kasutada Quick Style',
 ));

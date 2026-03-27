@@ -5,6 +5,7 @@
  * Dutch translation by Dutch Translators (https://github.com/dutch-translators)
  *
  * @copyright (c) 2015 PayBas
+ * @copyright (c) 2026 Avathar
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * Based on the original Prime Quick Style by Ken F. Innes IV (primehalo)
@@ -37,13 +38,13 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-	'QUICK_STYLE'						=> 'Snelle Stijl',
-	'QUICK_STYLE_EXPLAIN'				=> 'Deze extensie voegt een stijl dropdown box toe aan de header van elke pagina, zodat je snel van stijl kan wisselen. Gebaseerd op de originele “Prime Quick Style” van primehalo.',
-	'QUICK_STYLE_SETTINGS'				=> 'Snelle Stijl instellingen',
-	'QUICK_STYLE_DEFAULT_LOC'			=> 'Gebruik standaard template locatie',
-	'QUICK_STYLE_DEFAULT_LOC_EXPLAIN'	=> 'Standaard zal de Snelle Stijl extensie de stijl-verwisselaar rechts van de broodkruimelnavigatie in de header plaatsen. Door deze optie op “nee“ in te stellen, geeft je de mogelijkheid om de quickstyle_event op een zelf uitgekozen plaats te plaatsen.',
-	'QUICK_STYLE_PERMISSION_EXPLAIN'	=> 'Toegang tot de stijl-verwisselaar wordt beheerd via de <strong>Kan Quick Style gebruiken</strong> gebruikerspermissie. Configureer deze onder Beheer &raquo; Permissies &raquo; Gebruikers- of groepspermissies.',
-	'QUICK_STYLE_OVERRIDE_ENABLED'		=> 'De “overschrijf gebruikersstijl” configuratie-instelling is ingeschakeld op dit forum. De stijl-verwisselaar zal niet werken totdat je deze instelling hebt uitgeschakeld.',
+	'AV_QUICK_STYLE'						=> 'Snelle Stijl',
+	'AV_QUICK_STYLE_EXPLAIN'				=> 'Deze extensie voegt een stijl dropdown box toe aan de header van elke pagina, zodat je snel van stijl kan wisselen. Gebaseerd op de originele “Prime Quick Style” van primehalo.',
+	'AV_QUICK_STYLE_SETTINGS'				=> 'Snelle Stijl instellingen',
+	'AV_QUICK_STYLE_DEFAULT_LOC'			=> 'Gebruik standaard template locatie',
+	'AV_QUICK_STYLE_DEFAULT_LOC_EXPLAIN'	=> 'Standaard zal de Snelle Stijl extensie de stijl-verwisselaar rechts van de broodkruimelnavigatie in de header plaatsen. Door deze optie op “nee“ in te stellen, geeft je de mogelijkheid om de quickstyle_event op een zelf uitgekozen plaats te plaatsen.',
+	'AV_QUICK_STYLE_PERMISSION_EXPLAIN'	=> 'Toegang tot de stijl-verwisselaar wordt beheerd via de <strong>Kan Quick Style gebruiken</strong> gebruikerspermissie. Configureer deze onder Beheer &raquo; Permissies &raquo; Gebruikers- of groepspermissies.',
+	'AV_QUICK_STYLE_OVERRIDE_ENABLED'		=> 'De “overschrijf gebruikersstijl” configuratie-instelling is ingeschakeld op dit forum. De stijl-verwisselaar zal niet werken totdat je deze instelling hebt uitgeschakeld.',
 
 	'ACL_U_QUICKSTYLE'					=> 'Kan Quick Style gebruiken',
 ));

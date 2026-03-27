@@ -5,6 +5,7 @@
  * Croatian translation by Ančica Sečan (http://ancica.sunceko.net)
  *
  * @copyright (c) 2015 PayBas
+ * @copyright (c) 2026 Avathar
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * Based on the original Prime Quick Style by Ken F. Innes IV (primehalo)
@@ -37,13 +38,13 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-	'QUICK_STYLE'						=> 'Prebacivanje stilova',
-	'QUICK_STYLE_EXPLAIN'				=> 'Prikazuje padajući izbornik [instaliranih] stilova na zaglavlju svake stranice (a) za [brzo] prebacivanje između stilova.<br />Bazirano na originalu <em>Prime Quick Style</em> primehaloa.',
-	'QUICK_STYLE_SETTINGS'				=> 'Postavke',
-	'QUICK_STYLE_DEFAULT_LOC'			=> 'Koristi lokaciju zadanog predloška',
-	'QUICK_STYLE_DEFAULT_LOC_EXPLAIN'	=> 'Zadano, <em>Prebacivanje stilova</em> umeće padajući izbornik [instaliranih] stilova na zaglavlje svake stranice (i to) na desnu stranu Breadcrumb navigacije.<br />Ukoliko je onemogućeno, padajući izbornik [instaliranih] stilova moguće je postaviti bilo gdje [drugdje].',
-	'QUICK_STYLE_PERMISSION_EXPLAIN'	=> 'Pristup prebacivanju stilova kontrolira se putem dozvole <strong>Može koristiti Quick Style</strong>. Konfigurirajte je pod Administracija &raquo; Dozvole &raquo; Korisničke ili grupne dozvole.',
-	'QUICK_STYLE_OVERRIDE_ENABLED'		=> '<em>Prebacivanje stilova</em> je onemogućeno jer je “<em>Pregazi</em> korisnički stil” opcija omogućena.<br />Onemogući “<em>Pregazi</em> korisnički stil” opciju da bi <em>Prebacivanje stilova</em> moglo biti omogućeno',
+	'AV_QUICK_STYLE'						=> 'Prebacivanje stilova',
+	'AV_QUICK_STYLE_EXPLAIN'				=> 'Prikazuje padajući izbornik [instaliranih] stilova na zaglavlju svake stranice (a) za [brzo] prebacivanje između stilova.<br />Bazirano na originalu <em>Prime Quick Style</em> primehaloa.',
+	'AV_QUICK_STYLE_SETTINGS'				=> 'Postavke',
+	'AV_QUICK_STYLE_DEFAULT_LOC'			=> 'Koristi lokaciju zadanog predloška',
+	'AV_QUICK_STYLE_DEFAULT_LOC_EXPLAIN'	=> 'Zadano, <em>Prebacivanje stilova</em> umeće padajući izbornik [instaliranih] stilova na zaglavlje svake stranice (i to) na desnu stranu Breadcrumb navigacije.<br />Ukoliko je onemogućeno, padajući izbornik [instaliranih] stilova moguće je postaviti bilo gdje [drugdje].',
+	'AV_QUICK_STYLE_PERMISSION_EXPLAIN'	=> 'Pristup prebacivanju stilova kontrolira se putem dozvole <strong>Može koristiti Quick Style</strong>. Konfigurirajte je pod Administracija &raquo; Dozvole &raquo; Korisničke ili grupne dozvole.',
+	'AV_QUICK_STYLE_OVERRIDE_ENABLED'		=> '<em>Prebacivanje stilova</em> je onemogućeno jer je “<em>Pregazi</em> korisnički stil” opcija omogućena.<br />Onemogući “<em>Pregazi</em> korisnički stil” opciju da bi <em>Prebacivanje stilova</em> moglo biti omogućeno',
 
 	'ACL_U_QUICKSTYLE'					=> 'Može koristiti Quick Style',
 ));
