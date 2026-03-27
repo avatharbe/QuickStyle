@@ -58,11 +58,8 @@ class release_2_0_0 extends migration
 			// User permission
 			array('permission.add', array('u_quickstyle', true)),
 
-			// Enable by default for standard user roles
-			array('permission.permission_set', array('ROLE_USER_FULL', 'u_quickstyle')),
-			array('permission.permission_set', array('ROLE_USER_STANDARD', 'u_quickstyle')),
-
-			// Enable by default for guests
+			// Enable by default for everyone
+			array('permission.permission_set', array('REGISTERED', 'u_quickstyle', 'group')),
 			array('permission.permission_set', array('GUESTS', 'u_quickstyle', 'group')),
 		);
 	}
