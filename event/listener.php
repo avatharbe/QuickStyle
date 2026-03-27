@@ -81,15 +81,15 @@ class listener implements EventSubscriberInterface
 		$this->phpEx = $phpEx;
 
 		// Setup the common settings
-		$this->enabled = ($config['override_user_style'] == true) ? false : true;
-		$this->default_loc = isset($config['quickstyle_default_loc']) ? (int) $config['quickstyle_default_loc'] : true;
-		$this->allow_guests = isset($config['quickstyle_allow_guests']) ? (int) $config['quickstyle_allow_guests'] : true;
+		$this->enabled = !$config['override_user_style'];
+		$this->default_loc = (int) ($config['quickstyle_default_loc'] ?? 1);
+		$this->allow_guests = (int) ($config['quickstyle_allow_guests'] ?? 1);
 	}
 
 	/**
 	 * @return array
 	 */
-	static public function getSubscribedEvents()
+	public static function getSubscribedEvents(): array
 	{
 		return array(
 			'core.page_header_after'         => 'select_style_form',

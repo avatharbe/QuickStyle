@@ -32,7 +32,7 @@ class release_1_4_0 extends migration
 	/**
 	 * @return array
 	 */
-	static public function depends_on()
+	public static function depends_on(): array
 	{
 		return array(
 			'\paybas\quickstyle\migrations\release_1_3_0',

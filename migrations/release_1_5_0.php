@@ -14,19 +14,19 @@ namespace paybas\quickstyle\migrations;
 use phpbb\db\migration\migration;
 
 /**
- * Class release_1_4_1
+ * Class release_1_5_0
  *
  * @package paybas\quickstyle\migrations
  */
-class release_1_4_1 extends migration
+class release_1_5_0 extends migration
 {
 
 	/**
 	 * @return bool
 	 */
-	public function effectively_installed()
+	public function effectively_installed(): bool
 	{
-		return isset($this->config['quickstyle_version']) && version_compare($this->config['quickstyle_version'], '1.4.1', '>=');
+		return isset($this->config['quickstyle_version']) && version_compare($this->config['quickstyle_version'], '1.5.0', '>=');
 	}
 
 	/**
@@ -35,17 +35,17 @@ class release_1_4_1 extends migration
 	public static function depends_on(): array
 	{
 		return array(
-			'\paybas\quickstyle\migrations\release_1_4_0',
+			'\paybas\quickstyle\migrations\release_1_4_3',
 		);
 	}
 
 	/**
 	 * @return array
 	 */
-	public function update_data()
+	public function update_data(): array
 	{
 		return array(
-			array('config.update', array('quickstyle_version', '1.4.1')),
+			array('config.update', array('quickstyle_version', '1.5.0')),
 		);
 	}
 }
