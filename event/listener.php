@@ -194,7 +194,7 @@ class listener implements EventSubscriberInterface
 
 			if ($this->is_valid_style($style))
 			{
-				$sql = 'UPDATE ' . USERS_TABLE . ' SET user_style = ' . $style . ' WHERE user_id = ' . (int) $this->user->data['user_id'];
+				$sql = 'UPDATE ' . USERS_TABLE . ' SET user_style = ' . (int) $style . ' WHERE user_id = ' . (int) $this->user->data['user_id'];
 				$this->db->sql_query($sql);
 			}
 
@@ -251,7 +251,7 @@ class listener implements EventSubscriberInterface
 	 */
 	private function is_valid_style(int $style_id): bool
 	{
-		$sql = 'SELECT style_id FROM ' . STYLES_TABLE . ' WHERE style_id = ' . $style_id . ' AND style_active = 1';
+		$sql = 'SELECT style_id FROM ' . STYLES_TABLE . ' WHERE style_id = ' . (int) $style_id . ' AND style_active = 1';
 		$result = $this->db->sql_query($sql);
 		$valid = (bool) $this->db->sql_fetchfield('style_id');
 		$this->db->sql_freeresult($result);
