@@ -1,5 +1,3 @@
-/vendor/
-/composer.phar
-.idea
-phpunit.xml.dist
-/composer.lock
+.DS_Store
+.claude/
+composer.lock

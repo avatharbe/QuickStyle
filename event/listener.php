@@ -140,9 +140,16 @@ class listener implements EventSubscriberInterface
 			{
 				$this->language->add_lang('quickstyle', 'avathar/quickstyle');
 
-				$redirect = 'redirect=' . urlencode(str_replace(array('&amp;', '../'), array('&', ''), build_url('style')));
-				$base_action = append_sid("{$this->root_path}ucp.$this->phpEx", 'i=prefs&amp;mode=personal&amp;' . $redirect);
-				$base_action = preg_replace('/(?:&amp;|(\?))style=[^&]*(?(1)&amp;|)?/i', "$1", $base_action);
+				if ($this->user->data['is_registered'])
+				{
+					$redirect = 'redirect=' . urlencode(str_replace(array('&amp;', '../'), array('&', ''), build_url('style')));
+					$base_action = append_sid("{$this->root_path}ucp.$this->phpEx", 'i=prefs&amp;mode=personal&amp;' . $redirect);
+					$base_action = preg_replace('/(?:&amp;|(\?))style=[^&]*(?(1)&amp;|)?/i', "$1", $base_action);
+				}
+				else
+				{
+					$base_action = build_url(array('quick_style', 'style'));
+				}
 
 				$current_style_name = '';
 				foreach ($styles as $style)
