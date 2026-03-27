@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * @package Quick Style
@@ -10,12 +9,12 @@
  *
  */
 
-namespace paybas\quickstyle\acp;
+namespace avathar\quickstyle\acp;
 
 /**
  * Class quickstyle_module
  *
- * @package paybas\quickstyle\acp
+ * @package avathar\quickstyle\acp
  */
 class quickstyle_module
 {
@@ -28,10 +27,10 @@ class quickstyle_module
 	public function main($id, $mode)
 	{
 		global $phpbb_container;
-        $config = $phpbb_container->get('config');
-        $template = $phpbb_container->get('template');
-        $request = $phpbb_container->get('request');
-        $language = $phpbb_container->get('language');
+		$config = $phpbb_container->get('config');
+		$template = $phpbb_container->get('template');
+		$request = $phpbb_container->get('request');
+		$language = $phpbb_container->get('language');
 
 		$this->tpl_name = 'acp_quickstyle';
 		$this->page_title = $language->lang('QUICK_STYLE');
@@ -49,16 +48,12 @@ class quickstyle_module
 			$quickstyle_default_loc = $request->variable('quickstyle_default_loc', 0);
 			$config->set('quickstyle_default_loc', $quickstyle_default_loc);
 
-			$quickstyle_allow_guests = $request->variable('quickstyle_allow_guests', 0);
-			$config->set('quickstyle_allow_guests', $quickstyle_allow_guests);
-
 			trigger_error($language->lang('CONFIG_UPDATED') . adm_back_link($this->u_action));
 		}
 
 		$template->assign_vars(array(
-			'S_QUICKSTYLE_DEFAULT_LOC'  => isset($config['quickstyle_default_loc']) ? $config['quickstyle_default_loc'] : true,
-			'S_QUICKSTYLE_ALLOW_GUESTS' => isset($config['quickstyle_allow_guests']) ? $config['quickstyle_allow_guests'] : true,
-			'S_OVERRIDE_USER_STYLE'     => isset($config['override_user_style']) ? $config['override_user_style'] : false,
+			'S_QUICKSTYLE_DEFAULT_LOC'  => $config['quickstyle_default_loc'] ?? 1,
+			'S_OVERRIDE_USER_STYLE'     => $config['override_user_style'] ?? 0,
 			'U_ACTION'                  => $this->u_action,
 		));
 	}

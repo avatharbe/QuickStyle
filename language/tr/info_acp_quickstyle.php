@@ -42,7 +42,8 @@ $lang = array_merge($lang, array(
 	'QUICK_STYLE_SETTINGS'				=> 'Hızlı Stil ayarları',
 	'QUICK_STYLE_DEFAULT_LOC'			=> 'Varsayılan şablon konumunu kullan',
 	'QUICK_STYLE_DEFAULT_LOC_EXPLAIN'	=> 'Varsayılan olarak, Hızlı Stil eklentisi sayfa üst kısımda (header) sağ tarafta seçim kutusu ekler. “Hayır“ı seçerseniz size quickstyle_event kısmını stilinizde herhangi bir yere eklemenize izin verir.',
-	'QUICK_STYLE_ALLOW_GUESTS'			=> 'Misafirlerin stili değiştirmesine izin ver',
-	'QUICK_STYLE_ALLOW_GUESTS_EXPLAIN'	=> 'Bu ayar misafir kullanıcıların da stili değiştirmesine izin verir. Onlar oturum açtıktan sonra, bir önbellk çerezi onların seçtiği stili hatırlayacak.',
-	'QUICK_STYLE_OVERRIDE_ENABLED'		=> '“Kullanıcı stilinin üstüne yaz“ ayarı bu sitede aktif durumda. siz bu ayarı kapatana kadar Stil değiştirici çalışmayacak.',
+	'QUICK_STYLE_PERMISSION_EXPLAIN'	=> 'Stil degistiriciye erisim <strong>Quick Style kullanabilir</strong> kullanici izni ile kontrol edilir. Bunu Yonetim &raquo; Izinler &raquo; Kullanici veya Grup izinleri altindan yapilandiriniz.',
+	'QUICK_STYLE_OVERRIDE_ENABLED'		=> '”Kullanıcı stilinin üstüne yaz” ayarı bu sitede aktif durumda. siz bu ayarı kapatana kadar Stil değiştirici çalışmayacak.',
+
+	'ACL_U_QUICKSTYLE'					=> 'Quick Style kullanabilir',
 ));

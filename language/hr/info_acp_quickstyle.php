@@ -42,7 +42,8 @@ $lang = array_merge($lang, array(
 	'QUICK_STYLE_SETTINGS'				=> 'Postavke',
 	'QUICK_STYLE_DEFAULT_LOC'			=> 'Koristi lokaciju zadanog predloška',
 	'QUICK_STYLE_DEFAULT_LOC_EXPLAIN'	=> 'Zadano, <em>Prebacivanje stilova</em> umeće padajući izbornik [instaliranih] stilova na zaglavlje svake stranice (i to) na desnu stranu Breadcrumb navigacije.<br />Ukoliko je onemogućeno, padajući izbornik [instaliranih] stilova moguće je postaviti bilo gdje [drugdje].',
-	'QUICK_STYLE_ALLOW_GUESTS'			=> 'Dopusti gostima prebacivanje između stilova',
-	'QUICK_STYLE_ALLOW_GUESTS_EXPLAIN'	=> 'Ukoliko je omogućeno, gosti će moći koristiti <em>Prebacivanje stilova</em>.<br />Obzirom gosti nisu prijavljeni/e, za pamćenje [im] izabranog stila bit će korišteni kolačići.',
-	'QUICK_STYLE_OVERRIDE_ENABLED'		=> '<em>Prebacivanje stilova</em> je onemogućeno jer je “<em>Pregazi</em> korisnički stil“ opcija omogućena.<br />Onemogući “<em>Pregazi</em> korisnički stil“ opciju da bi <em>Prebacivanje stilova</em> moglo biti omogućeno',
+	'QUICK_STYLE_PERMISSION_EXPLAIN'	=> 'Pristup prebacivanju stilova kontrolira se putem dozvole <strong>Može koristiti Quick Style</strong>. Konfigurirajte je pod Administracija &raquo; Dozvole &raquo; Korisničke ili grupne dozvole.',
+	'QUICK_STYLE_OVERRIDE_ENABLED'		=> '<em>Prebacivanje stilova</em> je onemogućeno jer je “<em>Pregazi</em> korisnički stil” opcija omogućena.<br />Onemogući “<em>Pregazi</em> korisnički stil” opciju da bi <em>Prebacivanje stilova</em> moglo biti omogućeno',
+
+	'ACL_U_QUICKSTYLE'					=> 'Može koristiti Quick Style',
 ));

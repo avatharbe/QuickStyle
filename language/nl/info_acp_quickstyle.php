@@ -42,7 +42,8 @@ $lang = array_merge($lang, array(
 	'QUICK_STYLE_SETTINGS'				=> 'Snelle Stijl instellingen',
 	'QUICK_STYLE_DEFAULT_LOC'			=> 'Gebruik standaard template locatie',
 	'QUICK_STYLE_DEFAULT_LOC_EXPLAIN'	=> 'Standaard zal de Snelle Stijl extensie de stijl-verwisselaar rechts van de broodkruimelnavigatie in de header plaatsen. Door deze optie op “nee“ in te stellen, geeft je de mogelijkheid om de quickstyle_event op een zelf uitgekozen plaats te plaatsen.',
-	'QUICK_STYLE_ALLOW_GUESTS'			=> 'Sta gasten toe om van stijl te veranderen',
-	'QUICK_STYLE_ALLOW_GUESTS_EXPLAIN'	=> 'Deze instelling staat gasten toe om van stijl te wisselen. Aangezien gasten niet zijn aangemeld, zal er een cookie gebruikt worden om de gekozen stijl te onthouden.',
-	'QUICK_STYLE_OVERRIDE_ENABLED'		=> 'De “overschrijf gebruikersstijl“ configuratie-instelling is ingeschakeld op dit forum. De stijl-verwisselaar zal niet werken totdat je deze instelling hebt uitgeschakeld.',
+	'QUICK_STYLE_PERMISSION_EXPLAIN'	=> 'Toegang tot de stijl-verwisselaar wordt beheerd via de <strong>Kan Quick Style gebruiken</strong> gebruikerspermissie. Configureer deze onder Beheer &raquo; Permissies &raquo; Gebruikers- of groepspermissies.',
+	'QUICK_STYLE_OVERRIDE_ENABLED'		=> 'De “overschrijf gebruikersstijl” configuratie-instelling is ingeschakeld op dit forum. De stijl-verwisselaar zal niet werken totdat je deze instelling hebt uitgeschakeld.',
+
+	'ACL_U_QUICKSTYLE'					=> 'Kan Quick Style gebruiken',
 ));

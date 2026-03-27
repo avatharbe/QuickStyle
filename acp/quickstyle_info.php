@@ -9,25 +9,25 @@
  *
  */
 
-namespace paybas\quickstyle\acp;
+namespace avathar\quickstyle\acp;
 
 /**
  * Class quickstyle_info
  *
- * @package paybas\quickstyle\acp
+ * @package avathar\quickstyle\acp
  */
 class quickstyle_info
 {
 	/**
 	 * @return array
 	 */
-	function module()
+	public function module()
 	{
 		return array(
-			'filename'	=> '\paybas\quickstyle\acp\quickstyle_module',
+			'filename'	=> '\avathar\quickstyle\acp\quickstyle_module',
 			'title'		=> 'QUICK_STYLE',
 			'modes'		=> array(
-				'settings'	=> array('title' => 'QUICK_STYLE_SETTINGS', 'auth' => 'ext_paybas/quickstyle && acl_a_board', 'cat' => array('QUICK_STYLE')),
+				'settings'	=> array('title' => 'QUICK_STYLE_SETTINGS', 'auth' => 'ext_avathar/quickstyle && acl_a_board', 'cat' => array('QUICK_STYLE')),
 			),
 		);
 	}

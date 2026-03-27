@@ -1,7 +1,8 @@
 services:
-    paybas.quickstyle.listener:
-        class: paybas\quickstyle\event\listener
+    avathar.quickstyle.listener:
+        class: avathar\quickstyle\event\listener
         arguments:
+            - '@auth'
             - '@config'
             - '@language'
             - '@dbal.conn'

@@ -42,7 +42,8 @@ $lang = array_merge($lang, array(
 	'QUICK_STYLE_SETTINGS'				=> 'Stiili kiirvaliku seaded',
 	'QUICK_STYLE_DEFAULT_LOC'			=> 'Kasuta vaikimisi asukohta',
 	'QUICK_STYLE_DEFAULT_LOC_EXPLAIN'	=> 'Vaikimisi lisatakse stiilide kiirvalik paremale poole vastu breadcrumb navigatsooni. Seadistades selle väärtuseks “Ei“ lubab sul lisada quickstyle_event ükskõik kuhu oma stiilile.',
-	'QUICK_STYLE_ALLOW_GUESTS'			=> 'Luba külalistel vahetada stiile',
-	'QUICK_STYLE_ALLOW_GUESTS_EXPLAIN'	=> 'Lubades selle, siis külalised saavad samuti muuta stiile. Kuna külalised ei ole sisselogitud, siis nende poolt valitud stiili mäletavad küpsised.',
-	'QUICK_STYLE_OVERRIDE_ENABLED'		=> '“Muuda kasutajate valitud stiil“ on lubatud foorumi seadetes. Stiilide kiirvalikut ei näidata enne, kui oled selle valiku keelanud.',
+	'QUICK_STYLE_PERMISSION_EXPLAIN'	=> 'Stiilide kiirvaliku kasutamine on juhitav <strong>Saab kasutada Quick Style</strong> kasutajaõigusega. Seadista see Administreerimine &raquo; Õigused &raquo; Kasutaja- või grupiõigused.',
+	'QUICK_STYLE_OVERRIDE_ENABLED'		=> '”Muuda kasutajate valitud stiil” on lubatud foorumi seadetes. Stiilide kiirvalikut ei näidata enne, kui oled selle valiku keelanud.',
+
+	'ACL_U_QUICKSTYLE'					=> 'Saab kasutada Quick Style',
 ));

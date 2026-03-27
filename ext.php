@@ -5,7 +5,7 @@
  *
  */
 
-namespace paybas\quickstyle;
+namespace avathar\quickstyle;
 
 /**
  * Extension class for custom enable/disable/purge actions

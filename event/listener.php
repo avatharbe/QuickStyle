@@ -9,8 +9,9 @@
  *
  */
 
-namespace paybas\quickstyle\event;
+namespace avathar\quickstyle\event;
 
+use phpbb\auth\auth;
 use phpbb\config\config;
 use phpbb\db\driver\driver_interface;
 use phpbb\request\request_interface;
@@ -22,10 +23,13 @@ use phpbb\language\language;
 /**
  * Class listener
  *
- * @package paybas\quickstyle\event
+ * @package avathar\quickstyle\event
  */
 class listener implements EventSubscriberInterface
 {
+	/** @var \phpbb\auth\auth */
+	protected $auth;
+
 	/** @var \phpbb\config\config */
 	protected $config;
 
@@ -47,18 +51,19 @@ class listener implements EventSubscriberInterface
 	/** @var string PHP extension */
 	protected $phpEx;
 
+	/** @var bool */
 	protected $enabled;
-	protected $default_loc;
-	protected $allow_guests;
 
-	/**
-	 * @var \phpbb\language\language
-	 */
+	/** @var int */
+	protected $default_loc;
+
+	/** @var \phpbb\language\language */
 	protected $language;
 
 	/**
 	 * listener constructor.
 	 *
+	 * @param \phpbb\auth\auth                 $auth
 	 * @param \phpbb\config\config              $config
 	 * @param \phpbb\language\language          $language
 	 * @param \phpbb\db\driver\driver_interface $db
@@ -68,9 +73,10 @@ class listener implements EventSubscriberInterface
 	 * @param                                   $root_path
 	 * @param                                   $phpEx
 	 */
-	public function __construct(config $config, language $language, driver_interface $db,
+	public function __construct(auth $auth, config $config, language $language, driver_interface $db,
 			request_interface $request, template $template, user $user, $root_path, $phpEx)
 	{
+		$this->auth = $auth;
 		$this->config = $config;
 		$this->language = $language;
 		$this->db = $db;
@@ -83,7 +89,6 @@ class listener implements EventSubscriberInterface
 		// Setup the common settings
 		$this->enabled = !$config['override_user_style'];
 		$this->default_loc = (int) ($config['quickstyle_default_loc'] ?? 1);
-		$this->allow_guests = (int) ($config['quickstyle_allow_guests'] ?? 1);
 	}
 
 	/**
@@ -95,7 +100,19 @@ class listener implements EventSubscriberInterface
 			'core.page_header_after'         => 'select_style_form',
 			'core.ucp_display_module_before' => 'switch_style',
 			'core.user_setup'                => 'set_guest_style',
+			'core.permissions'               => 'add_permissions',
 		);
+	}
+
+	/**
+	 * Register extension permissions
+	 * @param \phpbb\event\data $event
+	 */
+	public function add_permissions($event)
+	{
+		$permissions = $event['permissions'];
+		$permissions['u_quickstyle'] = array('lang' => 'ACL_U_QUICKSTYLE', 'cat' => 'misc');
+		$event['permissions'] = $permissions;
 	}
 
 	/**
@@ -104,21 +121,48 @@ class listener implements EventSubscriberInterface
 	 */
 	public function select_style_form()
 	{
-		if ($this->enabled && ($this->allow_guests || $this->user->data['is_registered']))
+		if ($this->enabled && $this->auth->acl_get('u_quickstyle'))
 		{
-			$current_style = ($this->user->data['is_registered']) ? $this->user->data['user_style'] : $this->request_cookie('style', $this->user->data['user_style']);
-			$style_options = style_select($this->request->variable('style', (int) $current_style));
+			$current_style = ($this->user->data['is_registered']) ? (int) $this->user->data['user_style'] : (int) $this->request_cookie('style', $this->user->data['user_style']);
 
-			if (substr_count($style_options, '<option') > 1)
+			// Query active styles
+			$sql = 'SELECT style_id, style_name FROM ' . STYLES_TABLE . ' WHERE style_active = 1 ORDER BY style_name ASC';
+			$result = $this->db->sql_query($sql);
+			$styles = array();
+			while ($row = $this->db->sql_fetchrow($result))
 			{
-				$this->language->add_lang('quickstyle', 'paybas/quickstyle');
+				$styles[] = $row;
+			}
+			$this->db->sql_freeresult($result);
 
-				$redirect = 'redirect=' . urlencode(str_replace(array('&amp;', '../'), array('&', ''), build_url('style'))); // Build redirect URL
-				$action = append_sid("{$this->root_path}ucp.$this->phpEx", 'i=prefs&amp;mode=personal&amp;' . $redirect); // Build form submit URL + redirect
-				$action = preg_replace('/(?:&amp;|(\?))style=[^&]*(?(1)&amp;|)?/i', "$1", $action); // Remove style= param if it exists
+			if (count($styles) > 1)
+			{
+				$this->language->add_lang('quickstyle', 'avathar/quickstyle');
+
+				$redirect = 'redirect=' . urlencode(str_replace(array('&amp;', '../'), array('&', ''), build_url('style')));
+				$base_action = append_sid("{$this->root_path}ucp.$this->phpEx", 'i=prefs&amp;mode=personal&amp;' . $redirect);
+				$base_action = preg_replace('/(?:&amp;|(\?))style=[^&]*(?(1)&amp;|)?/i', "$1", $base_action);
+
+				$current_style_name = '';
+				foreach ($styles as $style)
+				{
+					$is_current = ((int) $style['style_id'] === $current_style);
+					if ($is_current)
+					{
+						$current_style_name = $style['style_name'];
+					}
+
+					$this->template->assign_block_vars('quickstyle', array(
+						'STYLE_ID'   => $style['style_id'],
+						'STYLE_NAME' => $style['style_name'],
+						'S_CURRENT'  => $is_current,
+						'U_ACTION'   => $base_action . '&amp;quick_style=' . $style['style_id'],
+					));
+				}
+
 				$this->template->assign_vars(array(
-					'S_QUICK_STYLE_ACTION' => $action,
-					'S_QUICK_STYLE_OPTIONS' => ($this->config['override_user_style']) ? '' : $style_options,
+					'S_QUICK_STYLE_SHOW'        => true,
+					'QUICK_STYLE_CURRENT_NAME'  => $current_style_name,
 					'S_QUICK_STYLE_DEFAULT_LOC' => $this->default_loc,
 				));
 			}
@@ -131,12 +175,16 @@ class listener implements EventSubscriberInterface
 	 */
 	public function switch_style()
 	{
-		if ($this->enabled && $style = $this->request->variable('quick_style', 0))
+		$style = $this->request->variable('quick_style', 0);
+		if ($this->enabled && $style)
 		{
-			$style = ($this->config['override_user_style']) ? $this->config['default_style'] : $style;
+			$style = ($this->config['override_user_style']) ? (int) $this->config['default_style'] : (int) $style;
 
-			$sql = 'UPDATE ' . USERS_TABLE . ' SET user_style = ' . (int) $style . ' WHERE user_id = ' . (int) $this->user->data['user_id'];
-			$this->db->sql_query($sql);
+			if ($this->is_valid_style($style))
+			{
+				$sql = 'UPDATE ' . USERS_TABLE . ' SET user_style = ' . $style . ' WHERE user_id = ' . (int) $this->user->data['user_id'];
+				$this->db->sql_query($sql);
+			}
 
 			// Redirect the user back to their last viewed page (non-AJAX requests)
 			$redirect = urldecode($this->request->variable('redirect', $this->user->data['session_page']));
@@ -152,19 +200,28 @@ class listener implements EventSubscriberInterface
 	 */
 	public function set_guest_style($event)
 	{
-		if ($this->enabled && $this->allow_guests && $this->user->data['user_id'] == ANONYMOUS)
+		if ($this->enabled && $this->user->data['user_id'] === ANONYMOUS)
 		{
-			$style = $event['style_id'];
-
-			// Set the style to display
-			$event['style_id'] = ($style) ? $style : $this->request_cookie('style', (int)($this->user->data['user_style']));
+			// Apply cookie style if no style_id already set
+			if (!$event['style_id'])
+			{
+				$cookie_style = (int) $this->request_cookie('style', 0);
+				if ($cookie_style && $this->is_valid_style($cookie_style))
+				{
+					$event['style_id'] = $cookie_style;
+				}
+			}
 
 			// Set the cookie (and redirect) when the style is switched
-			if ($style = $this->request->variable('quick_style', 0))
+			$style = $this->request->variable('quick_style', 0);
+			if ($style)
 			{
-				$style = ($this->config['override_user_style']) ? $this->config['default_style'] : $style;
+				$style = ($this->config['override_user_style']) ? (int) $this->config['default_style'] : (int) $style;
 
-				$this->user->set_cookie('style', $style, 0);
+				if ($this->is_valid_style($style))
+				{
+					$this->user->set_cookie('style', $style, 0);
+				}
 
 				// Redirect the user back to their last viewed page (non-AJAX requests)
 				$redirect = urldecode($this->request->variable('redirect', $this->user->data['session_page']));
@@ -172,6 +229,21 @@ class listener implements EventSubscriberInterface
 				redirect($redirect);
 			}
 		}
+	}
+
+	/**
+	 * Check if a style ID corresponds to an active style
+	 *
+	 * @param int $style_id
+	 * @return bool
+	 */
+	private function is_valid_style(int $style_id): bool
+	{
+		$sql = 'SELECT style_id FROM ' . STYLES_TABLE . ' WHERE style_id = ' . $style_id . ' AND style_active = 1';
+		$result = $this->db->sql_query($sql);
+		$valid = (bool) $this->db->sql_fetchfield('style_id');
+		$this->db->sql_freeresult($result);
+		return $valid;
 	}
 
 	/**
