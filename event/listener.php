@@ -149,6 +149,8 @@ class listener implements EventSubscriberInterface
 				else
 				{
 					$base_action = build_url(array('quick_style', 'style'));
+					$base_action .= (strpos($base_action, '?') === false) ? '?' : '&amp;';
+					$base_action .= 'quick_style=';
 				}
 
 				$current_style_name = '';
@@ -164,7 +166,9 @@ class listener implements EventSubscriberInterface
 						'STYLE_ID'   => $style['style_id'],
 						'STYLE_NAME' => $style['style_name'],
 						'S_CURRENT'  => $is_current,
-						'U_ACTION'   => $base_action . '&amp;quick_style=' . $style['style_id'],
+						'U_ACTION'   => $this->user->data['is_registered']
+						? $base_action . '&amp;quick_style=' . $style['style_id']
+						: $base_action . $style['style_id'],
 					));
 				}
 
@@ -208,7 +212,7 @@ class listener implements EventSubscriberInterface
 	 */
 	public function set_guest_style($event)
 	{
-		if ($this->enabled && $this->user->data['user_id'] === ANONYMOUS)
+		if ($this->enabled && (int) $this->user->data['user_id'] === ANONYMOUS)
 		{
 			// Apply cookie style if no style_id already set
 			if (!$event['style_id'])
