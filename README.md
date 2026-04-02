@@ -26,8 +26,11 @@ The extension will only render in one location based on the ACP setting — no d
 
 ### Changelog
 - 2.0.1 (2026-04-02)
-  - [FIX] `quickstyle_event` now respects the "Use default template location" ACP setting — the top-bar no longer overrides the breadcrumb location (#bug)
+  - [FIX] `quickstyle_event` now respects the "Use default template location" ACP setting — the top-bar no longer overrides the breadcrumb location
   - [NEW] Added WE Clearblue style support via `overall_header_navigation_append` event
+  - [FIX] Fixed missing ACP module language entries — `add_lang` now called in ACP module `main()`
+  - [CHG] Minimum PHP version raised to 8.1 (#5)
+  - [CHG] `ext.php` now returns descriptive error messages when PHP or phpBB requirements are not met (#5)
 
 - 2.0.0 (2026-03-27) — **Breaking change**: namespace moved from `paybas/quickstyle` to `avathar/quickstyle`. Uninstall the old extension before installing this version.
   - [CHG] Namespace changed from `paybas\quickstyle` to `avathar\quickstyle`
@@ -57,7 +60,7 @@ The extension will only render in one location based on the ACP setting — no d
 
 #### Requirements
 - phpBB 3.3.0 or higher
-- PHP 8.0 or higher
+- PHP 8.1 or higher
 
 #### Languages supported
 - Arabic
