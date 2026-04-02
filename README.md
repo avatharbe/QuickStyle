@@ -22,19 +22,28 @@ To place it somewhere else in your style, set "Use default template location" to
 ```html
 {% EVENT quickstyle_event %}
 ```
-The extension will automatically prevent duplicate rendering if both events are present.
+The extension will only render in one location based on the ACP setting — no duplicate rendering.
 
 ### Changelog
+- 2.0.1 (2026-04-02)
+  - [FIX] `quickstyle_event` now respects the "Use default template location" ACP setting — the top-bar no longer overrides the breadcrumb location (#bug)
+  - [NEW] Added WE Clearblue style support via `overall_header_navigation_append` event
+
 - 2.0.0 (2026-03-27) — **Breaking change**: namespace moved from `paybas/quickstyle` to `avathar/quickstyle`. Uninstall the old extension before installing this version.
   - [CHG] Namespace changed from `paybas\quickstyle` to `avathar\quickstyle`
+  - [CHG] Renamed ACP module keys to `AV_QUICK_STYLE` to prevent conflict with old version
   - [CHG] Require PHP 8.0+ and phpBB 3.3.0+
+  - [CHG] Updated composer/installers requirement to ~1.0 || ~2.0
   - [CHG] Fix PHP 8.x deprecations (static public → public static, return types)
+  - [CHG] Switched permission defaults from role-based to group-based (REGISTERED + GUESTS)
   - [SEC] Validate style IDs against active styles before applying
   - [DEL] Remove subsilver2 and proFormell legacy style overrides
   - [CHG] Move inline styles to CSS, responsive hide on mobile (700px breakpoint)
   - [CHG] Replace select element with prosilver-native dropdown menu
   - [NEW] Per-group user permission `u_quickstyle` (replaces allow_guests config toggle)
   - [CHG] Add language packs: cs, de, de_x_sie, es_x_tu, pt, sk, sv, uk
+  - [FIX] Fixed guest style switching: dropdown links no longer route through UCP login wall
+  - [FIX] Fixed strict type comparison for anonymous user detection
 
 - 1.4.3
   - [FIX] don't use single or double quotes in language strings

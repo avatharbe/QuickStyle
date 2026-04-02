@@ -1,4 +1,3 @@
-{% if S_QUICK_STYLE_SHOW %}
-	{% DEFINE S_QUICK_STYLE_DISPLAYED = true %}
+{% if S_QUICK_STYLE_SHOW and not S_QUICK_STYLE_DEFAULT_LOC %}
 	{% INCLUDE 'quickstyle.html' %}
 {% endif %}

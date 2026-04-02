@@ -33,6 +33,8 @@ class quickstyle_module
 		$request = $phpbb_container->get('request');
 		$language = $phpbb_container->get('language');
 
+		$language->add_lang('info_acp_quickstyle', 'avathar/quickstyle');
+
 		$this->tpl_name = 'acp_quickstyle';
 		$this->page_title = $language->lang('AV_QUICK_STYLE');
 
