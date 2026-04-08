@@ -28,22 +28,22 @@ use phpbb\language\language;
  */
 class listener implements EventSubscriberInterface
 {
-	/** @var \phpbb\auth\auth */
+	/** @var auth */
 	protected $auth;
 
-	/** @var \phpbb\config\config */
+	/** @var config */
 	protected $config;
 
-	/** @var \phpbb\db\driver\driver_interface */
+	/** @var driver_interface */
 	protected $db;
 
-	/** @var \phpbb\request\request_interface */
+	/** @var request_interface */
 	protected $request;
 
-	/** @var \phpbb\template\template */
+	/** @var template */
 	protected $template;
 
-	/** @var \phpbb\user */
+	/** @var user */
 	protected $user;
 
 	/** @var string phpBB root path */
@@ -58,21 +58,21 @@ class listener implements EventSubscriberInterface
 	/** @var int */
 	protected $default_loc;
 
-	/** @var \phpbb\language\language */
+	/** @var language */
 	protected $language;
 
 	/**
 	 * listener constructor.
 	 *
-	 * @param \phpbb\auth\auth                 $auth
-	 * @param \phpbb\config\config              $config
-	 * @param \phpbb\language\language          $language
-	 * @param \phpbb\db\driver\driver_interface $db
-	 * @param \phpbb\request\request_interface  $request
-	 * @param \phpbb\template\template          $template
-	 * @param \phpbb\user                       $user
-	 * @param                                   $root_path
-	 * @param                                   $phpEx
+	 * @param auth             $auth
+	 * @param config           $config
+	 * @param language         $language
+	 * @param driver_interface $db
+	 * @param request_interface $request
+	 * @param template         $template
+	 * @param user             $user
+	 * @param string           $root_path
+	 * @param string           $phpEx
 	 */
 	public function __construct(auth $auth, config $config, language $language, driver_interface $db,
 			request_interface $request, template $template, user $user, $root_path, $phpEx)
