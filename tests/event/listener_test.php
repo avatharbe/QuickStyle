@@ -53,6 +53,13 @@ class listener_test extends \phpbb_test_case
 	{
 		parent::setUp();
 
+		global $phpbb_path_helper;
+		$phpbb_path_helper = $this->getMockBuilder('\phpbb\path_helper')
+			->disableOriginalConstructor()
+			->getMock();
+		$phpbb_path_helper->method('get_valid_page')
+			->willReturn('index.php');
+
 		$this->auth = $this->createMock('\phpbb\auth\auth');
 		$this->config = new \phpbb\config\config(array(
 			'override_user_style'   => 0,
