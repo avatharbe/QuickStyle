@@ -73,6 +73,13 @@ class listener_test extends \phpbb_test_case
 			'user_style'    => 1,
 			'session_page'  => 'index.php',
 		);
+		$this->user->page = array(
+			'page_name' => 'index.php',
+			'page'      => 'index.php',
+			'root_script_path' => '/',
+			'script_path' => '/',
+			'query_string' => '',
+		);
 	}
 
 	/**

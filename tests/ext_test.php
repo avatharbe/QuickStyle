@@ -24,10 +24,19 @@ class ext_test extends \phpbb_test_case
 	 */
 	public function test_ext_is_instance_of_base()
 	{
+		$container = $this->createMock('Symfony\Component\DependencyInjection\ContainerInterface');
+		$finder = $this->getMockBuilder('\phpbb\finder')
+			->disableOriginalConstructor()
+			->getMock();
+		$migrator = $this->getMockBuilder('\phpbb\db\migrator')
+			->disableOriginalConstructor()
+			->getMock();
+
 		$ext = new \avathar\quickstyle\ext(
-			new \phpbb\filesystem\filesystem(),
-			$this->createMock('\phpbb\di\service_collection'),
-			'',
+			$container,
+			$finder,
+			$migrator,
+			'avathar/quickstyle',
 			''
 		);
 
