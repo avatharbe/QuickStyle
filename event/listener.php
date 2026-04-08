@@ -266,6 +266,6 @@ class listener implements EventSubscriberInterface
 	private function request_cookie($name, $default = null)
 	{
 		$name = $this->config['cookie_name'] . '_' . $name;
-		return $this->request->variable($name, $default, false, 3);
+		return $this->request->variable($name, $default, false, \phpbb\request\request_interface::COOKIE);
 	}
 }
