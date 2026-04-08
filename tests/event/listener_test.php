@@ -53,7 +53,7 @@ class listener_test extends \phpbb_test_case
 	{
 		parent::setUp();
 
-		global $phpbb_path_helper, $user, $config;
+		global $phpbb_path_helper, $phpbb_dispatcher, $user, $config;
 
 		$phpbb_path_helper = $this->getMockBuilder('\phpbb\path_helper')
 			->disableOriginalConstructor()
@@ -62,6 +62,10 @@ class listener_test extends \phpbb_test_case
 			->willReturn('index.php');
 		$phpbb_path_helper->method('strip_url_params')
 			->willReturn('index.php');
+		$phpbb_path_helper->method('update_web_root_path')
+			->willReturnArgument(0);
+
+		$phpbb_dispatcher = new \phpbb\event\dispatcher();
 
 		$this->auth = $this->createMock('\phpbb\auth\auth');
 		$this->config = new \phpbb\config\config(array(
