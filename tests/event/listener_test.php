@@ -53,11 +53,14 @@ class listener_test extends \phpbb_test_case
 	{
 		parent::setUp();
 
-		global $phpbb_path_helper;
+		global $phpbb_path_helper, $user, $config;
+
 		$phpbb_path_helper = $this->getMockBuilder('\phpbb\path_helper')
 			->disableOriginalConstructor()
 			->getMock();
 		$phpbb_path_helper->method('get_valid_page')
+			->willReturn('index.php');
+		$phpbb_path_helper->method('strip_url_params')
 			->willReturn('index.php');
 
 		$this->auth = $this->createMock('\phpbb\auth\auth');
@@ -87,6 +90,10 @@ class listener_test extends \phpbb_test_case
 			'script_path' => '/',
 			'query_string' => '',
 		);
+
+		// build_url() uses these globals
+		$user = $this->user;
+		$config = $this->config;
 	}
 
 	/**
