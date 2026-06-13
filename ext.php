@@ -16,14 +16,17 @@ class ext extends \phpbb\extension\base
 	{
 		$errors = [];
 
+		$user = $this->container->get('user');
+		$user->add_lang_ext('avathar/quickstyle', 'quickstyle');
+
 		if (version_compare(PHP_VERSION, self::MIN_PHP_VERSION, '<'))
 		{
-			$errors[] = 'This extension requires PHP ' . self::MIN_PHP_VERSION . ' or higher. You are running PHP ' . PHP_VERSION . '.';
+			$errors[] = $user->lang('QUICKSTYLE_PHP_VERSION_FAIL', self::MIN_PHP_VERSION, PHP_VERSION);
 		}
 
 		if (phpbb_version_compare(PHPBB_VERSION, self::MIN_PHPBB_VERSION, '<'))
 		{
-			$errors[] = 'This extension requires phpBB ' . self::MIN_PHPBB_VERSION . ' or higher. You are running phpBB ' . PHPBB_VERSION . '.';
+			$errors[] = $user->lang('QUICKSTYLE_PHPBB_VERSION_FAIL', self::MIN_PHPBB_VERSION, PHPBB_VERSION);
 		}
 
 		return empty($errors) ? true : $errors;

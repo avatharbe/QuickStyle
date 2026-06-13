@@ -27,4 +27,8 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'QUICK_STYLE'	=> 'Stil',
+
+	// is_enableable() error messages
+	'QUICKSTYLE_PHP_VERSION_FAIL'	=> 'Diese Erweiterung benötigt PHP %1$s oder höher. Sie verwenden PHP %2$s.',
+	'QUICKSTYLE_PHPBB_VERSION_FAIL'	=> 'Diese Erweiterung benötigt phpBB %1$s oder höher. Sie verwenden phpBB %2$s.',
 ));

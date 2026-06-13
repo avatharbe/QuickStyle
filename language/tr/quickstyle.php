@@ -39,4 +39,8 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'QUICK_STYLE'	=> 'Stil',
+
+	// is_enableable() error messages
+	'QUICKSTYLE_PHP_VERSION_FAIL'	=> 'Bu eklenti PHP %1$s veya üstünü gerektirir. Şu anda PHP %2$s kullanıyorsunuz.',
+	'QUICKSTYLE_PHPBB_VERSION_FAIL'	=> 'Bu eklenti phpBB %1$s veya üstünü gerektirir. Şu anda phpBB %2$s kullanıyorsunuz.',
 ));
